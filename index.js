@@ -1,17 +1,14 @@
-function fetchBooks() {
+
   // To pass the tests, don't forget to return your fetch!
-  
+  //include a featch request to the Game of Thrones API
+  //The returned response should be converted to JSON
+  //Then, call the second function, renderBooks()
+function fetchBooks() {
+  return fetch('https://anapioficeandfire.com/api/books')
+  .then(resp => resp.json())
+  .then(json => renderBooks(json));
 }
-
-function renderBooks(books) {
-  const main = document.querySelector('main');
-  books.forEach(book => {
-    const h2 = document.createElement('h2');
-    h2.innerHTML = book.name;
-    main.appendChild(h2);
-  });
-}
-
+function renderBooks(json) {
 document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks();
-});
+  fetchBooks()
+})}
